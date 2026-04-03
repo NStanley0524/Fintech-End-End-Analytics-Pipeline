@@ -1,6 +1,6 @@
 # Fintech End-End Analytics Pipeline
 
-## 📌 Overview
+## Overview
 
 This project implements an end-to-end analytics platform for a fintech system, designed to model and analyze user transactions, revenue generation, retention, and loan performance.
 
@@ -8,7 +8,7 @@ The platform transforms raw operational data into analytics-ready datasets that 
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 S3 → Airbyte → BigQuery → dbt → BI Dashboard
 
@@ -20,11 +20,11 @@ S3 → Airbyte → BigQuery → dbt → BI Dashboard
 
 ---
 
-## 🧱 Data Modeling Approach
+## Data Modeling Approach
 
 The warehouse follows a layered modeling structure:
 
-### 🔹 Staging Layer
+### Staging Layer
 
 Standardizes and cleans raw data:
 
@@ -35,7 +35,7 @@ Standardizes and cleans raw data:
 
 ---
 
-### 🔹 Core Models
+### Core Models
 
 #### Fact Table
 
@@ -53,7 +53,7 @@ Standardizes and cleans raw data:
 
 ---
 
-### 🔹 Metrics Layer
+### Metrics Layer
 
 * `fct_daily_metrics`
 
@@ -73,7 +73,7 @@ Standardizes and cleans raw data:
 
 ---
 
-## 📊 Dashboard
+## Dashboard
 
 The dashboard provides a unified view of platform performance:
 
@@ -91,7 +91,7 @@ The dashboard provides a unified view of platform performance:
 
 ---
 
-## 🔍 Key Insights
+## Key Insights
 
 * Acquisition channels contribute differently to revenue, with certain channels driving higher-value users
 * User retention declines significantly after initial signup, indicating opportunities to improve onboarding
@@ -100,7 +100,7 @@ The dashboard provides a unified view of platform performance:
 
 ---
 
-## 🧪 Data Quality & Reliability
+## Data Quality & Reliability
 
 * Implemented dbt tests (`not_null`, `unique`, `accepted_values`) to enforce data integrity
 * Applied defensive transformations using `safe_cast` and `safe_divide`
@@ -108,14 +108,14 @@ The dashboard provides a unified view of platform performance:
 
 ---
 
-## 🕒 Historical Tracking
+## Historical Tracking
 
 * Implemented dbt snapshots to track changes in user attributes over time
 * Enables longitudinal analysis of user behavior and lifecycle changes
 
 ---
 
-## 🚀 Capabilities
+## Capabilities
 
 This platform supports:
 
@@ -126,7 +126,7 @@ This platform supports:
 
 ---
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 * Incremental modeling for large-scale data processing
 * Real-time data ingestion
@@ -134,7 +134,3 @@ This platform supports:
 * Customer lifetime value (LTV) modeling
 
 ---
-
-## 👤 Author
-
-[Your Name]
