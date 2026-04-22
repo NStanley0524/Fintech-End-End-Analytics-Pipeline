@@ -1,0 +1,85 @@
+version: 2
+
+sources:
+  - name: raw
+    database: fintech-pipeline-491520
+    schema: fintech_raw
+
+    tables:
+      - name: transactions
+      - name: users
+      - name: loans
+      - name: repayments
+      - name: fraud_flags
+
+
+models:
+
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+
+      - name: amount
+        tests:
+          - not_null
+
+      - name: direction
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['inflow', 'outflow']
+
+  - name: stg_loans
+    columns:
+      - name: loan_id
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        tests:
+          - not_null
+
+  - name: stg_repayments
+    columns:
+      - name: loan_id
+        tests:
+          - not_null
+
+  - name: dim_users
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+  - name: facts_transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+
+      - name: primary_user_id
+        tests:
+          - not_null
+
+  - name: fct_loan_performance
+    columns:
+      - name: loan_id
+        tests:
+          - not_null
+          - unique
+
+      - name: repayment_ratio
+        tests:
+          - not_null
