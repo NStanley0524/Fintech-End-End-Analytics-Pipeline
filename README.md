@@ -102,7 +102,7 @@ High-level KPIs and growth trends:
 * GMV, Revenue, Active Users, ARPU, Take Rate
 * Revenue and transaction trends over time
 
-![Executive Dashboard](assets/Metabase_Executive_overview.pdf)
+![Executive Dashboard](assets/Metabase_Executive_overview.png)
 
 
 ### User Growth & Engagement
@@ -114,7 +114,7 @@ Behavior and retention insights:
 * Revenue by acquisition channel
 * Geographic user distribution
 
-![User Growth](assets/Metabase_User_growth_analytics.pdf)
+![User Growth](assets/Metabase_Growth_analytics.png)
 
 
 ### Loan Performance & Risk
@@ -126,7 +126,7 @@ Credit and risk monitoring:
 * Repayment behavior segmentation
 * Failed transaction analysis by region
 
-![Risk & Performance](assets/Metabase_Risk_loan_performance.pdf)
+![Risk & Performance](assets/Metabase_Loan_performance.png)
 
 
 ---
