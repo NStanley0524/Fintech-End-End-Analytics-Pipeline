@@ -2,9 +2,12 @@
 
 ## Overview
 
-This project implements an end-to-end analytics platform for a fintech system, designed to model and analyze user transactions, revenue generation, retention, and loan performance.
+This project simulates a production-grade fintech analytics platform, covering the full data lifecycle from ingestion to business intelligence.
 
-The platform transforms raw operational data into analytics-ready datasets that support business decision-making across growth, product, and risk teams.
+It models user transactions, revenue generation, engagement, and loan performance to enable data-driven decision-making across growth, product, and risk functions.
+
+Raw operational data is transformed into clean, analytics-ready datasets using dbt and surfaced through interactive dashboards for real-time business monitoring.
+
 
 ---
 
@@ -17,6 +20,19 @@ S3 → Airbyte → BigQuery → dbt → BI Dashboard
 * **BigQuery**: Central data warehouse
 * **dbt**: Transformation and modeling layer
 * **Metabase / Redash**: Business intelligence and visualization
+
+---
+
+
+## Data Lineage
+
+The data pipeline follows a layered transformation approach:
+
+- Raw source tables are standardized in staging models
+- Core transactional logic is consolidated in `fact_transactions`
+- Downstream models generate business-ready metrics for analytics and reporting
+
+This structure ensures clear lineage, modularity, and maintainability across the data stack.
 
 ---
 
@@ -75,28 +91,75 @@ Standardizes and cleans raw data:
 
 ## Dashboard
 
-The dashboard provides a unified view of platform performance:
+The analytics layer is structured into three dashboards aligned with business stakeholders:
 
-* Transaction volume and revenue trends
-* User acquisition and engagement
-* Retention behavior across cohorts
-* Loan performance and repayment patterns
+### Executive Overview
 
-📸 *Dashboard Screenshots*
+High-level KPIs and growth trends:
 
-![Overview](dashboards/overview.png)
-![Revenue](dashboards/revenue.png)
-![Cohorts](dashboards/cohorts.png)
-![Loans](dashboards/loans.png)
+* GMV, Revenue, Active Users, ARPU, Take Rate
+* Revenue and transaction trends over time
+
+![Executive Dashboard](assets/Metabase_Executive_overview.pdf)
+
+
+### User Growth & Engagement
+
+Behavior and retention insights:
+
+* Active user trends
+* Cohort retention analysis
+* Revenue by acquisition channel
+* Geographic user distribution
+
+![User Growth](assets/Metabase_User_growth_analytics.pdf)
+
+
+### Loan Performance & Risk
+
+Credit and risk monitoring:
+
+* Loan volumes and repayment rates
+* Default rate tracking
+* Repayment behavior segmentation
+* Failed transaction analysis by region
+
+![Risk & Performance](assets/Metabase_Risk_loan_performance.pdf)
+
 
 ---
 
 ## Key Insights
 
-* Acquisition channels contribute differently to revenue, with certain channels driving higher-value users
-* User retention declines significantly after initial signup, indicating opportunities to improve onboarding
-* Transaction activity is unevenly distributed, with a subset of users contributing a large share of volume
-* Loan repayment patterns reveal both fully repaid and partially repaid segments, highlighting varying risk profiles
+* **Revenue vs GMV:** Revenue growth lags slightly behind GMV, suggesting pressure on monetization efficiency and potential pricing optimization opportunities
+
+* **Stable User Activity:** Active users remain relatively stable over time, indicating consistent engagement but limited user growth acceleration
+
+* **Revenue Concentration:** Certain acquisition channels generate disproportionately higher revenue, highlighting dependence on key growth channels
+
+* **User Distribution:** A small number of countries contribute a large share of total users, indicating geographic concentration of adoption
+
+* **Loan Risk Exposure:** Approximately 11% of loans fall into default, with a significant portion categorized as late or very late repayments
+
+* **Repayment Behavior:** A large share of loans are either early or significantly delayed, suggesting uneven repayment patterns and risk segmentation opportunities
+
+
+---
+
+## Business Recommendation
+
+* **Improve Monetization Strategy:** Optimize pricing or fee structures to increase take rate without impacting transaction volume
+
+* **Enhance User Retention:** Address early-stage drop-offs through onboarding improvements and targeted engagement strategies
+
+* **Diversify Acquisition Channels:** Reduce dependency on top-performing channels by investing in underutilized sources
+
+* **Expand Geographical Reach:** Focus growth efforts on underrepresented regions to balance user distribution
+
+* **Strengthen Risk Controls:** Introduce stricter credit scoring or monitoring for high-risk loan segments
+
+* **Target Repayment Behavior:** Develop interventions (reminders, incentives) for late and very late repayment groups
+
 
 ---
 
