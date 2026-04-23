@@ -34,6 +34,8 @@ The data pipeline follows a layered transformation approach:
 
 This structure ensures clear lineage, modularity, and maintainability across the data stack.
 
+![Lineage](docs/Lineage.png)
+
 ---
 
 ## Data Modeling Approach
